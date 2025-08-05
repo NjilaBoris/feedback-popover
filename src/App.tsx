@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { useEffect, useState } from "react";
 
 import { AppleSpinner } from "./components/ui/apple-spinner";
 
@@ -20,15 +19,6 @@ export default function FeedbackComponentCSS() {
       setFeedback("");
     }, 3300);
   }
-
-  const ref = useRef<HTMLElement>(null);
-
-  function resetStates() {
-    setOpen(false);
-    setFeedback("");
-  }
-
-  useOnClickOutside(ref, () => resetStates());
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -71,13 +61,12 @@ export default function FeedbackComponentCSS() {
             <motion.div
               layoutId="wrapper"
               className="feedback-popover"
-              ref={ref}
               style={{ borderRadius: 12 }}
             >
               <motion.span
-                layoutId="title"
                 aria-hidden
                 className="placeholder"
+                layoutId="title"
                 data-success={formState === "success" ? "true" : "false"}
                 data-feedback={feedback ? "true" : "false"}
               >
@@ -113,7 +102,7 @@ export default function FeedbackComponentCSS() {
                       />
                     </svg>
                     <h3>Feedback received!</h3>
-                    <p>Thanks for helping me improve on my animations</p>
+                    <p>Thanks for helping me improve Sonner</p>
                   </motion.div>
                 ) : (
                   <motion.form
