@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 
 import { AppleSpinner } from "./components/ui/apple-spinner";
@@ -21,7 +21,7 @@ export default function FeedbackComponentCSS() {
     }, 3300);
   }
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
 
   function resetStates() {
     setOpen(false);
